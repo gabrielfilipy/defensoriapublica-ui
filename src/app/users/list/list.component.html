@@ -1,0 +1,50 @@
+<div class="conteudo">
+    <div class="grid">
+      <div class="col-4">
+        <div class="col-12 filter-user">
+          <div class="filter-user-content">
+            <h3>Filtrar por usuário:</h3>
+            <div *ngFor="let fu of filterUser" class="field-checkbox" style="margin-bottom: 0.20em;">
+              <p-radioButton [inputId]="fu.key" name="fu" [value]="fu" 
+                  [(ngModel)]="selectedFilterUser" (click)="search(first)"></p-radioButton>
+              <label [for]="fu.key">{{fu.name}}</label>
+            </div>
+          </div>
+        </div>
+   
+        <div class="col-12 filter-region">
+          <div class="filter-region-content">
+            <h3>Filtrar por região:</h3>
+            <div *ngFor="let fr of filterRegion" class="field-checkbox" style="margin-bottom: 0.20em;">
+              <p-radioButton [inputId]="fr.key" name="fr" [value]="fr" 
+                  [(ngModel)]="selectedFilterRegion" (click)="search(first)"></p-radioButton>
+              <label [for]="fr.key">{{fr.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div><!--col-4-->
+      <div class="col-8 ">
+        <div class="grid">
+          <div class="col-4" *ngFor="let c of clientes">
+            <a routerLink="/view/{{ c.id }}">
+              <div class="user">
+                <img class="img-user" src="{{ c.picture.large }}" alt="">
+                <p class="street-user">
+                  <b>{{ c.name.first.toUpperCase() }}</b>
+                  <br>
+                  {{ c.location.city }}
+                  <br>
+                  {{ c.location.street }}
+                  - CEP: {{ c.location.postcode }}
+                </p>
+              
+              </div><!--user-->
+            </a>
+          </div>
+      </div>
+      <p-paginator [first]="first" [rows]="pageSize" [totalRecords]="totalCount" 
+            (onPageChange)="onPageChange($event)"  
+            ></p-paginator> 
+        </div>
+    </div>
+  </div><!--conteudo-->

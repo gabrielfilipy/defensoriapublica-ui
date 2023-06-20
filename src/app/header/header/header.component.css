@@ -1,0 +1,10 @@
+.navbar {
+    margin-bottom: 10px;
+    background: rgb(61, 124, 213);
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}

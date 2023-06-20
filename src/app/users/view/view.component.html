@@ -1,0 +1,22 @@
+<div class="conteudo">
+    <div class="grid">
+        <div class="col-12">
+            <img src="{{ insumo.picture.large }}" alt="">
+            <p class="street-user">
+                <b>{{ insumo.name.first.toUpperCase() }}</b>
+                <br>
+                {{ insumo.location.street }}
+                - Cidade: {{ insumo.location.city.toUpperCase() }}
+                <br>
+                Telefone: {{ convertNumberPhoneInE16(insumo.phone) }}
+                <br>
+                E-mail: {{ insumo.email }}
+                <br>
+                Gênero: {{ insumo.gender }}
+                <br>
+
+            </p>
+            <a style="font-size: 17px; font-weight: bold;" routerLink="/list">Voltar</a>
+        </div> 
+    </div>
+</div>
